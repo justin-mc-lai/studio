@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "feature": "studio",
+  "version": "v0.1.0",
+  "ac_id": "QA",
+  "status": "pass",
+  "matrix": {
+    "AC-001": ["TC-001","TC-002","TC-003"],
+    "AC-002": ["TC-004","TC-005"],
+    "AC-003": ["TC-006","TC-007"],
+    "AC-004": ["TC-008"],
+    "AC-005": ["TC-009","TC-010"],
+    "AC-006": ["TC-011"],
+    "AC-007": ["TC-012","TC-013"]
+  },
+  "trace_backflow": "TRACE-001→portfolio, TRACE-002→roadmap-q3.md, TRACE-003→portfolio-health.md 均 linked",
+  "evidence_refs": ["portfolio/portfolio.json","requirements/pool.md","trace/TRACE-*.md","knowledge/cross-cutting/portfolio-health.md"]
+}

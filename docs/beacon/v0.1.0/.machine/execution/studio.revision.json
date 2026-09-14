@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "feature": "studio",
+  "feature_slug": "studio",
+  "version": "v0.1.0",
+  "revision_id": "R3",
+  "source_revision_id": "R2",
+  "reason": "freeze",
+  "doc_status": "frozen",
+  "delivery_status": "idle",
+  "lifecycle_status": "idle",
+  "baseline_hash": "sha256:8bc46d1de6ae441497883b29edb50a22dfc2bc73432aa2e6fb9488ecb7c15c6f",
+  "superseded_by": "",
+  "created_at": "2026-09-14T02:12:28.344425+00:00",
+  "frozen_at": "2026-09-14T02:12:47.495043+00:00",
+  "accepted_at": ""
+}

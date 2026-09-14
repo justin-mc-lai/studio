@@ -1,0 +1,84 @@
+{
+  "version": "v0.1.0",
+  "updated": "2026-09-13T19:49Z",
+  "projects": {
+    "brain-loop": {
+      "status": "active",
+      "priority": "infra",
+      "domain": "infrastructure",
+      "role": "brain-runtime",
+      "health": "green",
+      "last_activity": "2026-09-12",
+      "adb": false,
+      "beacon": true
+    },
+    "dispatch-bus": {
+      "status": "active",
+      "priority": "infra",
+      "domain": "infrastructure",
+      "role": "dispatch-gate",
+      "health": "green",
+      "last_activity": "2026-09-12",
+      "adb": true,
+      "beacon": true
+    },
+    "quant-alpha": {
+      "status": "active",
+      "priority": "high",
+      "domain": "finance",
+      "holdings": [
+        "asset-a",
+        "asset-b",
+        "asset-c",
+        "asset-d"
+      ],
+      "health": "green",
+      "last_activity": "2026-09-13"
+    },
+    "store-front": {
+      "status": "active",
+      "priority": "high",
+      "domain": "ecommerce",
+      "sub": [
+        "ops-template"
+      ],
+      "health": "green",
+      "last_activity": "2026-09-13"
+    },
+    "content-hub": {
+      "status": "active",
+      "priority": "medium",
+      "domain": "content",
+      "sub": [
+        "content-a",
+        "content-b",
+        "content-c"
+      ],
+      "health": "green",
+      "last_activity": "2026-09-11"
+    },
+    "beacon": {
+      "status": "active",
+      "priority": "infra",
+      "domain": "tooling",
+      "health": "green",
+      "last_activity": "2026-09-13"
+    },
+    "saas-base": {
+      "status": "active",
+      "priority": "medium",
+      "domain": "saas",
+      "health": "green",
+      "last_activity": "2026-09-10"
+    },
+    "shop-ca": {
+      "status": "active",
+      "priority": "medium",
+      "domain": "ecommerce",
+      "health": "yellow",
+      "last_activity": "2026-08-31"
+    }
+  },
+  "scope_mode": "full_parity",
+  "scope_note": "Studio 为新建独立产品（full_parity），非 brain-loop 接管；与 brain-loop/adb/beacon 平级，通过 portfolio.json 引用路径"
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "feature": "studio",
+  "feature_slug": "studio",
+  "version": "v0.1.0",
+  "status": "pass",
+  "blocked": false,
+  "reason_code": "",
+  "generated_at": "2026-09-14T14:18:10.683661+00:00",
+  "package_dir": "docs/beacon/v0.1.0/features/studio",
+  "truth_frontmatter": {
+    "slug": "studio",
+    "version": "v0.1.0",
+    "status": "frozen",
+    "language": "zh",
+    "domain_required": "true",
+    "parser_contract": "beacon-feature-package-v2",
+    "materials_status": "current",
+    "truth_source_model": "intent_first",
+    "package_maturity": "filled",
+    "canonical_refs": {
+      "prd": "docs/beacon/v0.1.0/features/studio/truth.md",
+      "user_story": "docs/beacon/v0.1.0/features/studio/truth.md",
+      "test_case": "docs/beacon/v0.1.0/features/studio/tests.md"
+    },
+    "provenance": {
+      "- ac_id": "AC-007",
+      "source_type": "user_intent",
+      "source_ref": "REQ-003: 8 项目绿/黄/红健康看板自动日报"
+    }
+  },
+  "ac_count": 7,
+  "test_count": 15,
+  "checkbox_count": 9,
+  "evidence_row_count": 10,
+  "gate_authority": "canonical_surfaces_preserved",
+  "checkbox_gate_bypass": false,
+  "task_evidence_gate": {
+    "pass": true,
+    "checked_ok": 0,
+    "checked_bad": 0,
+    "unbound": 0,
+    "findings": [],
+    "reason_code": ""
+  },
+  "evidence_gate_truth": false,
+  "diagnostics": []
+}

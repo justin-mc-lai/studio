@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "feature": "studio",
+  "feature_slug": "studio",
+  "version": "v0.1.0",
+  "acceptance_criteria": {
+    "functionality": [],
+    "data": [],
+    "ux": [],
+    "performance": [],
+    "security": [],
+    "compatibility": [],
+    "error_handling": []
+  },
+  "semantic_payload": {
+    "title": "studio",
+    "as_a": "user",
+    "i_want": "to complete studio",
+    "so_that": "the frozen requirement flow can be executed and verified",
+    "acceptance_criteria": {
+      "functionality": [],
+      "data": [],
+      "ux": [],
+      "performance": [],
+      "security": [],
+      "compatibility": [],
+      "error_handling": []
+    },
+    "story_points": 3,
+    "priority": "medium",
+    "status": "draft",
+    "created_at": "2026-09-01T13:30:10.068225"
+  },
+  "compiler": {
+    "requested_mode": "auto",
+    "effective_mode": "host",
+    "generator_mode": "host",
+    "fallback_reason": "",
+    "capability_snapshot": {
+      "schema_version": "1.0",
+      "command_name": "user-story",
+      "host_runtime": "codex",
+      "host_runtime_supported": true,
+      "host_bridge_declared": true,
+      "host_bridge_command_available": true,
+      "host_bridge_command_source": "env_cmd",
+      "host_bridge_command_env": "BEACON_HOST_USER_STORY_BRIDGE_CMD",
+      "host_response_available": false,
+      "host_response_source": "none",
+      "host_response_path": "",
+      "host_transport": "command-bridge",
+      "host_semantic_ready": true,
+      "response_used": false,
+      "host_mode_options": [
+        "host-response",
+        "host",
+        "host-provider",
+        "llm",
+        "rule"
+      ],
+      "provider_available": false,
+      "provider_key_present": false,
+      "llm_disabled": false,
+      "disable_env": "BEACON_USER_STORY_DISABLE_LLM"
+    }
+  },
+  "output_path": "docs/beacon/v0.1.0/user-story/studio.md",
+  "research_projection": {
+    "schema_version": "1.0",
+    "feature": "studio",
+    "version": "v0.1.0",
+    "source": "research:docs/beacon/v0.1.0/research/studio.md",
+    "present": false,
+    "section_count": 0,
+    "sections": {},
+    "derived_items": []
+  }
+}

@@ -1,0 +1,342 @@
+{
+  "schema_version": "1.0",
+  "truth_map_contract": "beacon-truth-map-v1",
+  "truth_source_model": "feature_package_authoritative",
+  "truth_package_contract": "beacon-feature-package-v2",
+  "machine_json_role": "generated_state_not_truth",
+  "generated_by": "beacon.truth_map.resolver",
+  "generated_at": "2026-09-14T14:18:10.976457+00:00",
+  "feature": "studio",
+  "feature_slug": "studio",
+  "version": "v0.1.0",
+  "truth_authority": false,
+  "json_authority": false,
+  "source_paths": {
+    "truth": "docs/beacon/v0.1.0/features/studio/truth.md",
+    "tests": "docs/beacon/v0.1.0/features/studio/tests.md",
+    "tasks": "docs/beacon/v0.1.0/features/studio/tasks.md",
+    "evidence": "docs/beacon/v0.1.0/features/studio/evidence.md"
+  },
+  "source_hashes": {
+    "truth": "372beb567269a9fa358c77b3cd9515fe00fd40299884dc314aadf4361bf1057f",
+    "tests": "742fc18d5b2b75a7398ae905d8aeb45043b2d706d4a06eabcd93135f1399ef59",
+    "tasks": "c56b3023073f41fbaed7bbc4b680e734cc5c7ee1a0020e61a099e69fc1d9e39b",
+    "evidence": "c089b7632a5f02eb3afd7ec68c49bd8281537af59f5509bfbe2d57415c2bafac"
+  },
+  "truth_frontmatter": {
+    "slug": "studio",
+    "version": "v0.1.0",
+    "status": "frozen",
+    "language": "zh",
+    "domain_required": "true",
+    "parser_contract": "beacon-feature-package-v2",
+    "materials_status": "current",
+    "truth_source_model": "intent_first",
+    "package_maturity": "filled",
+    "canonical_refs": {
+      "prd": "docs/beacon/v0.1.0/features/studio/truth.md",
+      "user_story": "docs/beacon/v0.1.0/features/studio/truth.md",
+      "test_case": "docs/beacon/v0.1.0/features/studio/tests.md"
+    },
+    "provenance": {
+      "- ac_id": "AC-007",
+      "source_type": "user_intent",
+      "source_ref": "REQ-003: 8 项目绿/黄/红健康看板自动日报"
+    }
+  },
+  "frontmatter_errors": [],
+  "acceptance_criteria": [
+    {
+      "ac_id": "AC-001",
+      "theme": "Portfolio 注册与健康度判定：8 项目在 portfolio.json 全量注册，health 绿(7日活动)/黄(14日无活动)/红(30日无活动；构建失败直接判红)口径与 state-model 一致，每日看板可验",
+      "description": ""
+    },
+    {
+      "ac_id": "AC-002",
+      "theme": "需求池路由与状态机：requirements/pool.md 为唯一入口，状态 inbox→routed→doing→done，非法 done→inbox 与 doing未routed→doing 被拒绝，做澄清回 inbox 可验",
+      "description": ""
+    },
+    {
+      "ac_id": "AC-003",
+      "theme": "跨项目需求真相冻结链：truth/tests/tasks/evidence 四件套事务闭环，B_fsm_audit 与 C_domain_exec_layer 紧口径通过，gate_ok 方可 frozen",
+      "description": ""
+    },
+    {
+      "ac_id": "AC-004",
+      "theme": "双轨执行与记忆：brain-loop 自动化与人工介入双轨并存，执行结果经 memory/workflow-lifecycle 与 knowledge 沉淀，跳过路由直接执行被拒绝",
+      "description": ""
+    },
+    {
+      "ac_id": "AC-005",
+      "theme": "全程 trace 五段回流：每 REQ 一 TRACE-*.md 走 采集→路由→执行→回流→沉淀，未回流即标 done 被拒绝，trace 与 evidence 可互相回放",
+      "description": ""
+    },
+    {
+      "ac_id": "AC-006",
+      "theme": "Q3 路线图决策（REQ-002）：产出 docs/beacon/v0.1.0/execution/roadmap-q3.md，明确 quant-alpha 全量数据 与 store-front metric+10% 的优先级排序与资源分配",
+      "description": ""
+    },
+    {
+      "ac_id": "AC-007",
+      "theme": "健康看板日报（REQ-003）：每日自动汇总 8 项目绿黄红，数据源 portfolio.json，结果落 trace/knowledge，阈值与 AC-001 一致",
+      "description": ""
+    }
+  ],
+  "test_rows": [
+    {
+      "ac_id": "AC-001",
+      "tc_id": "TC-001",
+      "layer": "",
+      "command": "`jq -e '.projects|length == 8' portfolio/portfolio.json`",
+      "assertion": "8 项目全量注册",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-001",
+      "tc_id": "TC-002",
+      "layer": "",
+      "command": "`jq -e '.projects[\"shop-ca\"].health == \"yellow\"' portfolio/portfolio.json && jq -e '.projects[\"brain-loop\"].health == \"green\"' portfolio/portfolio.json`",
+      "assertion": "健康度初值与阈值口径一致",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-001",
+      "tc_id": "TC-003",
+      "layer": "",
+      "command": "`rg -n 'green.*7天.*yellow.*14天.*red.*30天' docs/beacon/v0.1.0/state-model.md`",
+      "assertion": "状态机阈值文档可验",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-002",
+      "tc_id": "TC-004",
+      "layer": "",
+      "command": "`rg -n 'inbox --> routed' docs/beacon/v0.1.0/state-model.md && rg -n 'done --> inbox 禁止' docs/beacon/v0.1.0/features/studio/truth.md`",
+      "assertion": "路由 FSM 合法/非法声明可验",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-002",
+      "tc_id": "TC-005",
+      "layer": "",
+      "command": "`rg -n 'REQ-00[23]' requirements/pool.md`",
+      "assertion": "REQ-002/003 在池可追溯",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-003",
+      "tc_id": "TC-006",
+      "layer": "",
+      "command": "`rg -n 'domain_required: true' docs/beacon/v0.1.0/features/studio/truth.md`",
+      "assertion": "紧口径域开关已启用",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-003",
+      "tc_id": "TC-007",
+      "layer": "",
+      "command": "`beacon truth review studio --project-root . --version v0.1.0 --json|jq -e '.checks.B_fsm_audit.pass == true and .checks.C_domain_exec_layer.pass == true'`",
+      "assertion": "B 与 C_exec 紧口径通过（非 skipped）",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-004",
+      "tc_id": "TC-008",
+      "layer": "",
+      "command": "`jq -e '.projects[\"brain-loop\"].role == \"brain-runtime\" and .projects[\"dispatch-bus\"].adb == true' portfolio/portfolio.json && rg -n 'knowledge/' docs/beacon/v0.1.0/features/studio/evidence.md`",
+      "assertion": "双轨与知识沉淀声明可验",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-005",
+      "tc_id": "TC-009",
+      "layer": "",
+      "command": "`ls trace/TRACE-*.md|wc -l|xargs -I{} test {} -ge 1 && rg -n '采集.*路由.*执行.*回流.*沉淀' docs/beacon/v0.1.0/state-model.md`",
+      "assertion": "五段回流模型与 trace 文件存在",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-005",
+      "tc_id": "TC-010",
+      "layer": "",
+      "command": "`rg -n '跳过路由直接执行' docs/beacon/v0.1.0/state-model.md && rg -n '未经 trace 回流禁止' docs/beacon/v0.1.0/features/studio/truth.md`",
+      "assertion": "非法流转禁止可验",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-006",
+      "tc_id": "TC-011",
+      "layer": "",
+      "command": "`test -f docs/beacon/v0.1.0/execution/roadmap-q3.md && rg -n 'quant-alpha.*ecommerce|metric.*10%|优先级.*资源分配' docs/beacon/v0.1.0/execution/roadmap-q3.md`",
+      "assertion": "Q3 路线图文档存在且含优先级与资源分配",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-007",
+      "tc_id": "TC-012",
+      "layer": "",
+      "command": "`test -f knowledge/cross-cutting/portfolio-health.md||test -f trace/TRACE-003.md && rg -n 'green|yellow|red' portfolio/portfolio.json`",
+      "assertion": "健康日报产物或 trace 可追溯且阈值与 AC-001 一致",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-007",
+      "tc_id": "TC-013",
+      "layer": "",
+      "command": "`rg -n 'AC-007' docs/beacon/v0.1.0/features/studio/evidence.md`",
+      "assertion": "健康日报证据索引可验",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-002",
+      "tc_id": "TC-014",
+      "layer": "",
+      "command": "`python3 -m pytest tests/test_studio_contract.py -k fsm_legal_walk`",
+      "assertion": "FSM 合法路径 legal walk: inbox→routed→doing→review→done 全路径可达",
+      "evidence_path": "",
+      "source": ""
+    },
+    {
+      "ac_id": "AC-002",
+      "tc_id": "TC-015",
+      "layer": "",
+      "command": "`python3 -m pytest tests/test_studio_contract.py -k fsm_illegal_transitions`",
+      "assertion": "FSM 非法路径 rejected: done→inbox 等非法转移不可达",
+      "evidence_path": "",
+      "source": ""
+    }
+  ],
+  "task_rows": [
+    {
+      "id": "TASK-001",
+      "title": "Implement AC-001: Portfolio 注册与健康度判定：8 项目在 portfolio.json 全量注册，health 绿(7日活动)/黄(14日无活动)... · ac=AC-001 · evidence=`.beacon/evidence/implement/studio/AC-001.json`",
+      "status": "unchecked"
+    },
+    {
+      "id": "TASK-002",
+      "title": "Implement AC-002: 需求池路由与状态机：requirements/pool.md 为唯一入口，状态 inbox→routed→doing→done，非法 do... · ac=AC-002 · evidence=`.beacon/evidence/implement/studio/AC-002.json`",
+      "status": "unchecked"
+    },
+    {
+      "id": "TASK-003",
+      "title": "Implement AC-003: 跨项目需求真相冻结链：truth/tests/tasks/evidence 四件套事务闭环，B_fsm_audit 与 C_domain_... · ac=AC-003 · evidence=`.beacon/evidence/implement/studio/AC-003.json`",
+      "status": "unchecked"
+    },
+    {
+      "id": "TASK-004",
+      "title": "Implement AC-004: 双轨执行与记忆：brain-loop 自动化与人工介入双轨并存，执行结果经 memory/workflow-lifecycle 与 knowl... · ac=AC-004 · evidence=`.beacon/evidence/implement/studio/AC-004.json`",
+      "status": "unchecked"
+    },
+    {
+      "id": "TASK-005",
+      "title": "Implement AC-005: 全程 trace 五段回流：每 REQ 一 TRACE-*.md 走 采集→路由→执行→回流→沉淀，未回流即标 done 被拒绝，trac... · ac=AC-005 · evidence=`.beacon/evidence/implement/studio/AC-005.json`",
+      "status": "unchecked"
+    },
+    {
+      "id": "TASK-006",
+      "title": "Implement AC-006: Q3 路线图决策（REQ-002）：产出 docs/beacon/v0.1.0/execution/roadmap-q3.md，明确 a-... · ac=AC-006 · evidence=`.beacon/evidence/implement/studio/AC-006.json`",
+      "status": "unchecked"
+    },
+    {
+      "id": "TASK-007",
+      "title": "Implement AC-007: 健康看板日报（REQ-003）：每日自动汇总 8 项目绿黄红，数据源 portfolio.json，结果落 trace/knowledge... · ac=AC-007 · evidence=`.beacon/evidence/implement/studio/AC-007.json`",
+      "status": "unchecked"
+    },
+    {
+      "id": "TASK-008",
+      "title": "Validate package gates (truth review + freeze ack) · ac=GATES · evidence=`.beacon/evidence/implement/studio/GATES.json`",
+      "status": "unchecked"
+    },
+    {
+      "id": "TASK-009",
+      "title": "Run QA against AC↔TC matrix + exec-layer evidence · ac=QA · evidence=`.beacon/evidence/implement/studio/QA-MATRIX.json`",
+      "status": "unchecked"
+    }
+  ],
+  "checkbox_errors": [],
+  "evidence_rows": [
+    {
+      "surface": "truth",
+      "authority": "requirement_truth",
+      "canonical_artifact": "docs/beacon/v0.1.0/features/studio/truth.md",
+      "status": "current",
+      "route": "truth"
+    },
+    {
+      "surface": "tests",
+      "authority": "test_truth",
+      "canonical_artifact": "docs/beacon/v0.1.0/features/studio/tests.md",
+      "status": "current",
+      "route": "truth"
+    },
+    {
+      "surface": "tasks",
+      "authority": "requirement_truth",
+      "canonical_artifact": "docs/beacon/v0.1.0/features/studio/tasks.md",
+      "status": "current",
+      "route": "truth"
+    },
+    {
+      "surface": "portfolio",
+      "authority": "support_advisory",
+      "canonical_artifact": "portfolio/portfolio.json",
+      "status": "indexed",
+      "route": "truth"
+    },
+    {
+      "surface": "pool",
+      "authority": "support_advisory",
+      "canonical_artifact": "requirements/pool.md",
+      "status": "indexed",
+      "route": "truth"
+    },
+    {
+      "surface": "trace",
+      "authority": "support_advisory",
+      "canonical_artifact": "trace/TRACE-*.md",
+      "status": "linked",
+      "route": "qa"
+    },
+    {
+      "surface": "roadmap",
+      "authority": "support_advisory",
+      "canonical_artifact": "docs/beacon/v0.1.0/execution/roadmap-q3.md",
+      "status": "linked",
+      "route": "qa"
+    },
+    {
+      "surface": "health-report (AC-007)",
+      "authority": "support_advisory",
+      "canonical_artifact": "knowledge/cross-cutting/portfolio-health.md",
+      "status": "linked",
+      "route": "qa"
+    },
+    {
+      "surface": "gates",
+      "authority": "qa_verdict",
+      "canonical_artifact": ".beacon/evidence/implement/studio/GATES.json",
+      "status": "linked",
+      "route": "qa"
+    },
+    {
+      "surface": "qa",
+      "authority": "qa_verdict",
+      "canonical_artifact": ".beacon/evidence/implement/studio/QA-MATRIX.json",
+      "status": "linked",
+      "route": "qa"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "feature": "studio",
+  "version": "v0.1.0",
+  "ac_id": "AC-003",
+  "status": "pass",
+  "checked_at": "2026-09-03T14:15:19Z",
+  "branch": "beacon/v0.1.0/studio",
+  "worktree": "/workspace/studio/.beacon/worktrees/v0.1.0/studio",
+  "tcs": "TC-006,TC-007",
+  "checks": "domain_required true; B/C_exec pass",
+  "evidence_paths": ["portfolio/portfolio.json","requirements/pool.md","trace/TRACE-*.md","docs/beacon/v0.1.0/features/studio/truth.md"],
+  "notes": "control-plane docs-first delivery; tc commands verified in worktree"
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "feature": "studio",
+  "version": "v0.1.0",
+  "ac_id": "GATES",
+  "status": "pass",
+  "checked_at": "2026-09-03T14:15:20Z",
+  "truth_review": "{\n    \"schema\": \"truth-review-gate.v1\",\n    \"schema_version\": \"1.0\",\n    \"feature\": \"studio\",\n    \"version\": \"v0.1.0\",\n    \"pass\": true,\n    \"blocked\": false,\n    \"review_gate_pass\": true,\n    \"abc_pass\": true,\n    \"reason_code\": \"\",\n    \"domain_required\": true,\n    \"checks\": {\n        \"A_intent_coverage\": {\n            \"pass\": true,\n            \"check\": \"A\",\n            \"name\": \"intent_coverage\",\n            \"required\": true,\n     ,
+  "gate_summary": "B_fsm_audit pass true, C_domain_exec_layer pass true, D_fill_depth pass true, truth-fsm pass",
+  "worktree": "/workspace/studio/.beacon/worktrees/v0.1.0/studio"
+}

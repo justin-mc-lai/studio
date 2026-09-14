@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "feature": "studio",
+  "version": "v0.1.0",
+  "ac_id": "AC-005",
+  "status": "pass",
+  "checked_at": "2026-09-03T14:15:19Z",
+  "branch": "beacon/v0.1.0/studio",
+  "worktree": "/workspace/studio/.beacon/worktrees/v0.1.0/studio",
+  "tcs": "TC-009,TC-010",
+  "checks": "TRACE-001..003 三文件 + 五段回流 + 非法禁止",
+  "evidence_paths": ["portfolio/portfolio.json","requirements/pool.md","trace/TRACE-*.md","docs/beacon/v0.1.0/features/studio/truth.md"],
+  "notes": "control-plane docs-first delivery; tc commands verified in worktree"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "feature": "studio",
+  "version": "v0.1.0",
+  "ac_id": "AC-002",
+  "status": "pass",
+  "checked_at": "2026-09-13T19:50:00Z",
+  "branch": "main",
+  "worktree": "/workspace/studio",
+  "tcs": "TC-004,TC-005",
+  "checks": "pool.md 状态机真实流转: 状态节 Inbox/Routed/Doing/Review/Done 齐备; REQ-001=doing, REQ-002/003=done 且带回流证据; Inbox 为空; 非法 done→inbox 声明保留",
+  "evidence_paths": [
+    "requirements/pool.md",
+    "trace/TRACE-001.md",
+    "trace/TRACE-002.md",
+    "trace/TRACE-003.md"
+  ],
+  "commands": [
+    "rg -n '## (Inbox|Routed|Doing|Review|Done)' requirements/pool.md",
+    "rg -n '状态: (doing|done)' requirements/pool.md"
+  ],
+  "notes": "Gap-1 修复: 原 Inbox 残留已消除, pool.md 成为唯一入口且状态与 trace 一致"
+}

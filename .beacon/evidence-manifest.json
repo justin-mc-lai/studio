@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "path": "docs/beacon/v0.1.0/.machine/requirement/feature-package-validation.json",
+      "sha256": "35a237cc712831d3b62a9503ec43b46a12c7a86ffcf0ced6e5246f373e2b493f",
+      "updated_at": "2026-09-14T14:18:10.684487+00:00"
+    }
+  ],
+  "updated_at": "2026-09-14T14:18:10.684493+00:00",
+  "version": "v0.1.0"
+}

@@ -1,0 +1,32 @@
+# Runtime / generated state — never commit (Beacon re-generates from truth)
+.beacon/state/
+.beacon/tasks/
+.beacon/worktrees/
+.beacon/traces/
+.beacon/memory/
+.beacon/locks/
+.beacon/qa/
+.beacon/implement/
+.beacon/evidence/auto-test/
+.beacon/evidence/qa-feature/
+.beacon/evidence/design-md-lint/
+.beacon/evidence-signature-chain.json
+.beacon/flaky-history.json
+.beacon/raw-command-log.jsonl
+
+# Agent / orchestration runtime
+.omc/
+
+# Python caches
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+
+# Secrets & sanitization inputs (must never be pushed)
+publish/sanitize.map
+*.local.toml
+.env
+.env.*
+*.pem
+*.key

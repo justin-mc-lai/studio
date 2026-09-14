@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "feature": "studio",
+  "feature_slug": "studio",
+  "version": "v0.1.0",
+  "runtime_version": "v1.6.17",
+  "runtime_capability_line": "v1.3.3",
+  "required": false,
+  "reason_code": "",
+  "blocked": false,
+  "status": "pass",
+  "findings": [],
+  "report_json_path": "docs/beacon/v0.1.0/.machine/execution/requirement-clarity-studio.json",
+  "report_markdown_path": "docs/beacon/v0.1.0/execution/requirement-clarity-studio.md",
+  "state_path": ".beacon/state/requirement-clarity-studio.json"
+}

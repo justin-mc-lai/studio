@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "feature": "studio",
+    "feature_slug": "studio",
+    "version": "v0.1.0"
+  },
+  "content": "# PRD: studio\n\n**Feature**: `studio`\n**Version**: `v0.1.0`\n**Status**: `draft semantic-compiled`\n**Date**: `2026-09-01`\n**Language**: `zh`\n**Track**: `main`\n**Semantic Label**: `通用需求治理`\n\n## Overview\n\n本 PRD 定义 `通用需求治理` 在当前版本线 `v0.1.0` 的 requirement truth，\n覆盖问题定义、目标、设计原则、范围、功能需求、契约边界与验收标准。\n\n## Outline\n\n<!-- FILL: Mermaid diagram showing the feature's core flow or state transitions.\n     Use flowchart TD/LR for procedural features, stateDiagram-v2 for stateful features. -->\n\n```mermaid\nflowchart TD\n    A[Truth Definition] --> B[Contract Boundary]\n    B --> C[Acceptance Verification]\n    C --> D[Release Gate]\n```\n\n## Context\n\n- Global boundaries: `docs/beacon/global-boundaries.md`\n- Version summary: `docs/beacon/v0.1.0/SUMMARY.md`\n- Execution index: `docs/beacon/v0.1.0/execution/index.md`\n- Existing PRDs in line: none\n\n## Problem\n\n### 当前断层\n- 当前 `通用需求治理` 仍存在 requirement truth 与投影/执行结果之间的稳定性缺口。\n\n### 触发信号\n- 真实项目运行中出现状态噪音、证据链断点或命令语义漂移，需要在版本包内正式收敛。\n\n### 为什么现在做\n- 若不在本版本修复，后续 prototype/implement/qa/release 会继续放大漂移风险。\n\n## Goals\n\n### 主要目标\n- 把本需求的边界、分层、恢复策略和验收链固化为可执行 contract。\n\n### 非目标\n- 不新增公开一级主命令，不改写 Beacon 既有主流程心智面。\n\n## Design Principles\n\n### Canonical First\n- 先形成 canonical 输入，再投影到 human/machine/runtime 各面，禁止多源并写。\n\n### Transaction First\n- 写入流程遵循 prepare/validate/stage/commit/publish/verify，失败必须显式可观测。\n\n### Truth Boundary\n- 正式真相保持在 `docs/beacon/<version>/` 与 `.beacon/`，投影层仅做管理与观察。\n\n## Scope\n\n### In Scope\n- 本 feature 的需求冻结、执行约束、验收闭环与证据写回。\n- 与主线一致的 gate/review/doctor/status 判定口径。\n\n### Out of Scope\n- UI 高保真实现与非本版本产品化扩展能力。\n- 与本 feature 无关的跨域重构。\n\n## Functional Requirements\n\n### FR-001 输入与输出 contract\n- 需求输入、执行状态与交付证据必须可追溯，并可被机器校验。\n\n### FR-002 失败语义与恢复策略\n- 任一关键写入失败必须留下失败记录并阻断关键 gate，恢复路径可执行。\n\n### FR-003 验收链路一致\n- `prd -> user-story -> test-case -> implement -> qa -> release` 的映射关系持续一致。\n\n## Source Contract\n\n### 边界\n- 人类面用于评审与决策，机器面用于校验与自动化，不允许相互反向漂移。\n\n### 分层\n- requirement layer 负责定义承诺；execution layer 负责实现；qa/release layer 负责验证与准入。\n\n### 恢复策略\n- 事务失败后优先重建 canonical 投影，再重跑 gate/review；禁止带病继续发布。\n\n## Risks\n\n| 风险 | 影响 | 缓解 |\n|------|------|------|\n| 需求语义退化为模板占位 | 高 | 增加 contract 校验与 machine 编译证据，失败时降级并记录原因 |\n| 多写入点状态不一致 | 高 | 事务元数据统一并在 gate/review/release 阶段强校验 |\n\n## Acceptance Criteria\n\n### AC-001 主路径验收\n- 关键功能按 requirement chain 全量可追溯，且存在对应测试与证据。\n\n### AC-002 失败可恢复\n- 失败事务可被显式识别并触发恢复流程，关键 gate 会阻断。\n\n### AC-003 文档与实现一致\n- PRD、User Story、Test Case 与实现证据之间无结构性漂移。\n\n### AC-004 风险可审计\n- 所有降级、fallback 与未决项都在 machine 证据中可查询。\n\n## Non-Goals\n\n<!-- FILL: Explicitly excluded items beyond scope. -->\n\n## Success Metrics\n\n- 主指标：关键 gate 阻断原因可解释且可复现。\n- 辅指标：版本线 requirement closure 与执行证据一致性持续提升。\n\n## Related PRDs\n\n- 当前主线依赖真实项目输入与已有版本包约束。\n- 并行修复项应回挂到本主线，不新增一级主命令。\n- 后续扩展保持 canonical-first 与 requirement traceability。",
+  "markdown": "# PRD: studio\n\n**Feature**: `studio`\n**Version**: `v0.1.0`\n**Status**: `draft semantic-compiled`\n**Date**: `2026-09-01`\n**Language**: `zh`\n**Track**: `main`\n**Semantic Label**: `通用需求治理`\n\n## Overview\n\n本 PRD 定义 `通用需求治理` 在当前版本线 `v0.1.0` 的 requirement truth，\n覆盖问题定义、目标、设计原则、范围、功能需求、契约边界与验收标准。\n\n## Outline\n\n<!-- FILL: Mermaid diagram showing the feature's core flow or state transitions.\n     Use flowchart TD/LR for procedural features, stateDiagram-v2 for stateful features. -->\n\n```mermaid\nflowchart TD\n    A[Truth Definition] --> B[Contract Boundary]\n    B --> C[Acceptance Verification]\n    C --> D[Release Gate]\n```\n\n## Context\n\n- Global boundaries: `docs/beacon/global-boundaries.md`\n- Version summary: `docs/beacon/v0.1.0/SUMMARY.md`\n- Execution index: `docs/beacon/v0.1.0/execution/index.md`\n- Existing PRDs in line: none\n\n## Problem\n\n### 当前断层\n- 当前 `通用需求治理` 仍存在 requirement truth 与投影/执行结果之间的稳定性缺口。\n\n### 触发信号\n- 真实项目运行中出现状态噪音、证据链断点或命令语义漂移，需要在版本包内正式收敛。\n\n### 为什么现在做\n- 若不在本版本修复，后续 prototype/implement/qa/release 会继续放大漂移风险。\n\n## Goals\n\n### 主要目标\n- 把本需求的边界、分层、恢复策略和验收链固化为可执行 contract。\n\n### 非目标\n- 不新增公开一级主命令，不改写 Beacon 既有主流程心智面。\n\n## Design Principles\n\n### Canonical First\n- 先形成 canonical 输入，再投影到 human/machine/runtime 各面，禁止多源并写。\n\n### Transaction First\n- 写入流程遵循 prepare/validate/stage/commit/publish/verify，失败必须显式可观测。\n\n### Truth Boundary\n- 正式真相保持在 `docs/beacon/<version>/` 与 `.beacon/`，投影层仅做管理与观察。\n\n## Scope\n\n### In Scope\n- 本 feature 的需求冻结、执行约束、验收闭环与证据写回。\n- 与主线一致的 gate/review/doctor/status 判定口径。\n\n### Out of Scope\n- UI 高保真实现与非本版本产品化扩展能力。\n- 与本 feature 无关的跨域重构。\n\n## Functional Requirements\n\n### FR-001 输入与输出 contract\n- 需求输入、执行状态与交付证据必须可追溯，并可被机器校验。\n\n### FR-002 失败语义与恢复策略\n- 任一关键写入失败必须留下失败记录并阻断关键 gate，恢复路径可执行。\n\n### FR-003 验收链路一致\n- `prd -> user-story -> test-case -> implement -> qa -> release` 的映射关系持续一致。\n\n## Source Contract\n\n### 边界\n- 人类面用于评审与决策，机器面用于校验与自动化，不允许相互反向漂移。\n\n### 分层\n- requirement layer 负责定义承诺；execution layer 负责实现；qa/release layer 负责验证与准入。\n\n### 恢复策略\n- 事务失败后优先重建 canonical 投影，再重跑 gate/review；禁止带病继续发布。\n\n## Risks\n\n| 风险 | 影响 | 缓解 |\n|------|------|------|\n| 需求语义退化为模板占位 | 高 | 增加 contract 校验与 machine 编译证据，失败时降级并记录原因 |\n| 多写入点状态不一致 | 高 | 事务元数据统一并在 gate/review/release 阶段强校验 |\n\n## Acceptance Criteria\n\n### AC-001 主路径验收\n- 关键功能按 requirement chain 全量可追溯，且存在对应测试与证据。\n\n### AC-002 失败可恢复\n- 失败事务可被显式识别并触发恢复流程，关键 gate 会阻断。\n\n### AC-003 文档与实现一致\n- PRD、User Story、Test Case 与实现证据之间无结构性漂移。\n\n### AC-004 风险可审计\n- 所有降级、fallback 与未决项都在 machine 证据中可查询。\n\n## Non-Goals\n\n<!-- FILL: Explicitly excluded items beyond scope. -->\n\n## Success Metrics\n\n- 主指标：关键 gate 阻断原因可解释且可复现。\n- 辅指标：版本线 requirement closure 与执行证据一致性持续提升。\n\n## Related PRDs\n\n- 当前主线依赖真实项目输入与已有版本包约束。\n- 并行修复项应回挂到本主线，不新增一级主命令。\n- 后续扩展保持 canonical-first 与 requirement traceability。",
+  "semantic_payload": {
+    "track": "main",
+    "family": "general",
+    "label": "主 PRD / general"
+  },
+  "mode_contract": {
+    "compilation_mode": "auto",
+    "effective_mode": "host",
+    "generator_mode": "host",
+    "fallback_reason": ""
+  },
+  "transaction": {
+    "transaction_id": "tx-prd-studio-prd-5932c071ee1955a8",
+    "source_hash": "5932c071ee1955a8d883e98d01970d5c2c2c25107013419384d96879b818ee19",
+    "projection_seq": "prd-5932c071ee1955a8",
+    "committed_at": "2026-09-01T05:29:48.996081+00:00",
+    "sink_checksums": {
+      "human": "7e9bd3a5a95ca8bc4b7ba53272dc19ca609293ef7fb54028b09ce308d1cb281e",
+      "machine": "ee2c5af2419d66c63e49d9974bb3b8d7cf8d075dcdbfd8a56eb6679ab3dbc902"
+    },
+    "status": "applied",
+    "supersedes_transaction_id": "",
+    "supersedes_projection_seq": "",
+    "supersedes_source_hash": ""
+  }
+}

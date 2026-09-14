@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "feature": "studio",
+  "version": "v0.1.0",
+  "ac_id": "AC-007",
+  "status": "pass",
+  "checked_at": "2026-09-13T19:50:00Z",
+  "branch": "main",
+  "worktree": "/workspace/studio",
+  "tcs": "TC-012,TC-013",
+  "checks": "健康看板自动化: scripts/portfolio_health.py 由 portfolio.json last_activity 计算绿黄红并写 knowledge/cross-cutting/portfolio-health.md; 自检 --check 通过; beacon task st-d0f67704026e (cli_command) 已装 launchd 每日 09:00 timer, wake 实测 succeeded 且日志含当日看板",
+  "evidence_paths": [
+    "scripts/portfolio_health.py",
+    "portfolio/portfolio.json",
+    "knowledge/cross-cutting/portfolio-health.md",
+    ".beacon/tasks/st-d0f67704026e/task.json",
+    ".beacon/tasks/st-d0f67704026e/executions/ex-de7ff45b355c.log"
+  ],
+  "commands": [
+    "python3 scripts/portfolio_health.py --check",
+    "beacon task list --project . --json",
+    "beacon task log st-d0f67704026e --project . --json"
+  ],
+  "notes": "Gap-2 修复: 原静态 md 换成可计算+可调度; 阈值常量 GREEN_MAX_DAYS/YELLOW_MAX_DAYS 为口径旋钮"
+}
